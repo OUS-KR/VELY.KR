@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELY — vely.kr · The Suffix of Life, Love & Living Motion</title>
+  <meta name="description" content="vely.kr — The definitive home of the -vely suffix. From lovely to effectively, lively to exclusively: two ancient streams converging on the most alive ending in English." />
+  <meta property="og:title" content="VELY — vely.kr" />
+  <meta property="og:description" content="Explore the -vely suffix: Old English -lic warmth meets Latin -ivus precision — the adverbial ending that carries both love and logic." />
+  <meta property="og:url" content="https://vely.kr" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-life-green:   #28a870;
+      --color-love-rose:    #e03870;
+      --color-logic-blue:   #2858d4;
+      --color-dawn-ivory:   #f5f0e8;
+      --color-void:         #040608;
+
+      --font-display:  'Cinzel', serif;
+      --font-serif:    'Cormorant Garamond', serif;
+      --font-body:     'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-void);
+      color: var(--color-dawn-ivory);
+      overflow-x: hidden;
+    }
+
+    #bg-canvas {
+      position: fixed; inset: 0;
+      z-index: 0; pointer-events: none;
+    }
+
+    section, header, footer { position: relative; z-index: 1; }
+
+    .fade-up {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.78s ease, transform 0.78s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .font-display { font-family: var(--font-display); }
+    .font-serif   { font-family: var(--font-serif); }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(20px);
+      background: rgba(4,6,8,0.82);
+      border-bottom: 1px solid rgba(40,168,112,0.25);
+    }
+
+    /* ── Hero bg text ── */
+    .hero-bg-text {
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 24vw, 22rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      background: linear-gradient(135deg,
+        rgba(40,168,112,0.18) 0%,
+        rgba(224,56,112,0.14) 50%,
+        rgba(40,88,212,0.10) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      user-select: none; pointer-events: none;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+
+    /* ── Stat Cards ── */
+    .stat-card {
+      background: rgba(40,168,112,0.08);
+      border: 1px solid rgba(40,168,112,0.28);
+      border-radius: 1rem;
+      padding: 1.75rem 1.5rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(40,168,112,0.58);
+    }
+
+    /* ── Dual Stream Panel ── */
+    .stream-panel {
+      border-radius: 1.5rem;
+      padding: 2.2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stream-panel:hover {
+      transform: translateY(-4px);
+    }
+    .stream-panel.germanic {
+      background: linear-gradient(135deg, rgba(224,56,112,0.12), rgba(4,6,8,0.70));
+      border: 1px solid rgba(224,56,112,0.32);
+    }
+    .stream-panel.romance {
+      background: linear-gradient(135deg, rgba(40,88,212,0.12), rgba(4,6,8,0.70));
+      border: 1px solid rgba(40,88,212,0.32);
+    }
+    .stream-panel.germanic:hover { box-shadow: 0 12px 36px rgba(224,56,112,0.10); }
+    .stream-panel.romance:hover  { box-shadow: 0 12px 36px rgba(40,88,212,0.10); }
+
+    /* ── Origin Nodes ── */
+    .origin-node {
+      background: rgba(40,168,112,0.10);
+      border: 1px solid rgba(40,168,112,0.30);
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.2rem;
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+    .origin-node.rose  { border-color: rgba(224,56,112,0.35); background: rgba(224,56,112,0.09); }
+    .origin-node.blue  { border-color: rgba(40,88,212,0.35);  background: rgba(40,88,212,0.09); }
+    .origin-arrow {
+      color: rgba(40,168,112,0.55);
+      font-size: 1.4rem;
+      align-self: center;
+    }
+    .origin-arrow.rose { color: rgba(224,56,112,0.50); }
+    .origin-arrow.blue { color: rgba(40,88,212,0.50); }
+
+    /* ── Word Class Cards ── */
+    .class-card {
+      background: rgba(40,168,112,0.07);
+      border: 1px solid rgba(40,168,112,0.22);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .class-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(40,168,112,0.50);
+      box-shadow: 0 10px 32px rgba(40,168,112,0.10);
+    }
+
+    /* ── Letter Tiles ── */
+    .letter-tile {
+      background: rgba(40,168,112,0.09);
+      border: 1px solid rgba(40,168,112,0.28);
+      border-radius: 1rem;
+      padding: 2.2rem 0.8rem 1.8rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .letter-tile:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 14px 38px rgba(40,168,112,0.14);
+    }
+
+    /* ── Feature Cards ── */
+    .feature-card {
+      background: rgba(4,6,8,0.60);
+      border: 1px solid rgba(40,168,112,0.18);
+      border-radius: 1rem;
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.3s;
+    }
+    .feature-card:hover { border-color: rgba(40,168,112,0.45); }
+
+    /* ── Timeline ── */
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      border-left: 2px solid rgba(40,168,112,0.28);
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { border-color: transparent; padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -7px; top: 4px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--color-life-green);
+      border: 2px solid var(--color-void);
+    }
+
+    /* ── Convergence Visual ── */
+    .conv-box {
+      border-radius: 1.25rem;
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+    }
+    .conv-rose { background: rgba(224,56,112,0.10); border: 1px solid rgba(224,56,112,0.32); }
+    .conv-blue { background: rgba(40,88,212,0.10);  border: 1px solid rgba(40,88,212,0.32); }
+    .conv-green { background: rgba(40,168,112,0.14); border: 1px solid rgba(40,168,112,0.45); }
+
+    /* ── Word Pills ── */
+    .word-pill {
+      display: inline-block;
+      background: rgba(40,168,112,0.09);
+      border: 1px solid rgba(40,168,112,0.28);
+      border-radius: 9999px;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.88rem;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+      cursor: default;
+    }
+    .word-pill:hover {
+      background: rgba(40,168,112,0.26);
+      border-color: rgba(40,168,112,0.58);
+      transform: scale(1.06);
+    }
+    .word-pill.rose {
+      background: rgba(224,56,112,0.09); border-color: rgba(224,56,112,0.28);
+    }
+    .word-pill.rose:hover {
+      background: rgba(224,56,112,0.24); border-color: rgba(224,56,112,0.55);
+    }
+    .word-pill.blue {
+      background: rgba(40,88,212,0.09); border-color: rgba(40,88,212,0.28);
+    }
+    .word-pill.blue:hover {
+      background: rgba(40,88,212,0.24); border-color: rgba(40,88,212,0.55);
+    }
+
+    /* ── Codex Box ── */
+    .codex-box {
+      background: rgba(40,168,112,0.07);
+      border: 1px solid rgba(40,168,112,0.35);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+    .codex-row {
+      display: flex; gap: 1rem;
+      border-bottom: 1px solid rgba(40,168,112,0.12);
+      padding: 0.75rem 0;
+      align-items: flex-start;
+    }
+    .codex-row:last-child { border-bottom: none; }
+    .codex-key {
+      font-family: var(--font-display);
+      font-size: 0.70rem;
+      letter-spacing: 0.12em;
+      color: rgba(40,168,112,0.80);
+      min-width: 9rem;
+      padding-top: 0.1rem;
+    }
+    .codex-val { font-size: 0.92rem; line-height: 1.65; }
+
+    /* ── Series Cards ── */
+    .series-card {
+      background: rgba(40,168,112,0.07);
+      border: 1px solid rgba(40,168,112,0.18);
+      border-radius: 1rem;
+      padding: 1.1rem 0.8rem;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.3rem;
+    }
+    .series-card:hover {
+      background: rgba(40,168,112,0.20);
+      border-color: rgba(40,168,112,0.50);
+      transform: translateY(-3px);
+    }
+    .series-card.active {
+      background: rgba(40,168,112,0.22);
+      border-color: rgba(40,168,112,0.60);
+    }
+
+    /* ── Section Divider ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(40,168,112,0.38),
+        rgba(224,56,112,0.22),
+        transparent);
+      margin: 0 auto;
+      max-width: 60rem;
+    }
+
+    /* ── Dual badge ── */
+    .dual-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border-radius: 9999px;
+      padding: 0.38rem 1rem;
+      font-family: var(--font-display);
+      font-size: 0.70rem;
+      letter-spacing: 0.10em;
+      font-weight: 600;
+    }
+    .badge-germanic {
+      background: rgba(224,56,112,0.12);
+      border: 1px solid rgba(224,56,112,0.38);
+      color: rgba(224,56,112,0.90);
+    }
+    .badge-romance {
+      background: rgba(40,88,212,0.12);
+      border: 1px solid rgba(40,88,212,0.38);
+      color: rgba(40,88,212,0.90);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════ CANVAS ══════════════════════════ -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+<header class="site-header">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="https://vely.kr" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center border"
+           style="background:rgba(40,168,112,0.16);border-color:rgba(40,168,112,0.42);">
+        <span class="font-display text-sm font-bold" style="color:#28a870;">VELY</span>
+      </div>
+      <span class="font-display text-lg font-semibold tracking-wider" style="color:#f5f0e8;">vely.kr</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm" style="color:rgba(245,240,232,0.58);">
+      <a href="#origin"      class="hover:text-[#28a870] transition-colors">Origin</a>
+      <a href="#streams"     class="hover:text-[#28a870] transition-colors">Streams</a>
+      <a href="#convergence" class="hover:text-[#28a870] transition-colors">Convergence</a>
+      <a href="#words"       class="hover:text-[#28a870] transition-colors">Words</a>
+      <a href="#codex"       class="hover:text-[#28a870] transition-colors">Codex</a>
+      <a href="#series"      class="hover:text-[#28a870] transition-colors">Series</a>
+    </nav>
+    <a href="mailto:hello@vely.kr"
+       class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-all"
+       style="border-color:rgba(40,168,112,0.38);color:#28a870;background:rgba(40,168,112,0.09);"
+       onmouseover="this.style.background='rgba(40,168,112,0.22)'"
+       onmouseout="this.style.background='rgba(40,168,112,0.09)'">
+      Contact
+    </a>
+  </div>
+</header>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32">
+  <div class="hero-bg-text" aria-hidden="true">VELY</div>
+
+  <div class="relative z-10 max-w-4xl mx-auto fade-up">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-medium mb-8 font-display tracking-widest"
+         style="border-color:rgba(40,168,112,0.38);color:#28a870;background:rgba(40,168,112,0.09);">
+      SUFFIX DOMAIN SERIES
+    </div>
+
+    <h1 class="font-display font-black mb-6"
+        style="font-size:clamp(3.5rem,10vw,7.5rem);letter-spacing:-0.03em;
+               background:linear-gradient(135deg,#f5f0e8 0%,#e03870 45%,#28a870 100%);
+               -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+               background-clip:text;line-height:0.9;">
+      ‑VELY
+    </h1>
+
+    <p class="font-serif italic mb-4"
+       style="font-size:clamp(1.15rem,2.6vw,1.6rem);color:rgba(245,240,232,0.85);font-weight:300;">
+      The Suffix of Life, Love &amp; Living Motion
+    </p>
+    <p style="color:rgba(245,240,232,0.52);max-width:46rem;margin:0 auto 2.5rem;
+              line-height:1.90;font-size:0.97rem;">
+      From <em>lovely</em> to <em>effectively</em>, <em>lively</em> to <em>exclusively</em> —
+      ‑vely is where two great linguistic rivers meet. The warmth of Old English
+      <em>‑luflic</em> and the precision of Latin <em>‑ivus</em> flow into the same
+      four-letter sequence: an ending that carries both the oldest human emotion
+      and the most sophisticated intellectual operations of the language.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <span class="dual-badge badge-germanic">♡ GERMANIC STREAM</span>
+      <span style="color:rgba(245,240,232,0.30);align-self:center;font-size:1.2rem;">×</span>
+      <span class="dual-badge badge-romance">◆ LATIN-ROMANCE STREAM</span>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#origin"
+         class="px-7 py-3 rounded-xl font-semibold text-sm transition-all"
+         style="background:rgba(40,168,112,0.85);color:#f5f0e8;"
+         onmouseover="this.style.background='rgba(40,168,112,1)'"
+         onmouseout="this.style.background='rgba(40,168,112,0.85)'">
+        Explore Origin
+      </a>
+      <a href="#words"
+         class="px-7 py-3 rounded-xl font-semibold text-sm border transition-all"
+         style="border-color:rgba(40,168,112,0.40);color:#28a870;"
+         onmouseover="this.style.background='rgba(40,168,112,0.12)'"
+         onmouseout="this.style.background='transparent'">
+        Browse Words
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+       style="color:rgba(40,168,112,0.45);">
+    <span class="text-xs font-display tracking-widest">SCROLL</span>
+    <div class="w-px h-10 animate-bounce"
+         style="background:linear-gradient(to bottom,rgba(40,168,112,0.45),rgba(224,56,112,0.25));"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ STATS ══════════════════════════ -->
+<section class="py-10 px-6">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 fade-up">
+
+    <div class="stat-card text-center">
+      <p class="font-display text-4xl font-bold mb-1" style="color:#28a870;">500<span style="color:#e03870;">+</span></p>
+      <p class="text-xs tracking-widest font-display" style="color:rgba(245,240,232,0.48);">‑VELY WORDS</p>
+    </div>
+    <div class="stat-card text-center">
+      <p class="font-display text-4xl font-bold mb-1" style="color:#e03870;">2</p>
+      <p class="text-xs tracking-widest font-display" style="color:rgba(245,240,232,0.48);">ORIGIN STREAMS</p>
+    </div>
+    <div class="stat-card text-center">
+      <p class="font-display text-4xl font-bold mb-1" style="color:#2858d4;">ADV</p>
+      <p class="text-xs tracking-widest font-display" style="color:rgba(245,240,232,0.48);">ADVERB SUFFIX</p>
+    </div>
+    <div class="stat-card text-center">
+      <p class="font-display text-4xl font-bold mb-1" style="color:#28a870;">OE+L</p>
+      <p class="text-xs tracking-widest font-display" style="color:rgba(245,240,232,0.48);">GERMANIC + LATIN</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider my-4"></div>
+
+<!-- ══════════════════════════ ORIGIN ══════════════════════════ -->
+<section id="origin" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-16 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">ETYMOLOGY</p>
+      <h2 class="font-display font-bold mb-5"
+          style="font-size:clamp(2rem,5vw,3.2rem);color:#f5f0e8;">
+        Two Rivers, One Ending
+      </h2>
+      <p class="max-w-2xl mx-auto" style="color:rgba(245,240,232,0.58);line-height:1.88;">
+        ‑vely is one of the most linguistically fascinating sequences in English
+        because it is not a single suffix at all — it is an accidental convergence
+        of two completely independent etymological rivers that happened to arrive
+        at exactly the same four phonemes after over a thousand years of separate evolution.
+      </p>
+    </div>
+
+    <!-- Stream I: Germanic -->
+    <div class="mb-16 fade-up">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="dual-badge badge-germanic">♡ STREAM I</span>
+        <h3 class="font-display text-sm tracking-widest" style="color:#e03870;">
+          GERMANIC — OLD ENGLISH ‑LIC + ‑LICE
+        </h3>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <div class="origin-node rose">Proto-Germanic<br/><span style="color:#e03870;">*‑līkaz</span><br/><span style="font-size:0.75rem;opacity:0.6;">"body, form, like"</span></div>
+        <div class="origin-arrow rose">→</div>
+        <div class="origin-node rose">Old English<br/><span style="color:#e03870;">‑lic / ‑lice</span><br/><span style="font-size:0.75rem;opacity:0.6;">adj. + adv. suffix</span></div>
+        <div class="origin-arrow rose">→</div>
+        <div class="origin-node rose">Middle English<br/><span style="color:#e03870;">‑li / ‑ly</span><br/><span style="font-size:0.75rem;opacity:0.6;">vowel reduction</span></div>
+        <div class="origin-arrow rose">→</div>
+        <div class="origin-node rose">Modern English<br/><span style="color:#f5f0e8;">love + ly → <em>lovely</em></span></div>
+      </div>
+      <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.88;max-width:52rem;">
+        The oldest stream of ‑vely runs through the heart of Old English. Proto-Germanic
+        *<em>‑līkaz</em> ("body, form, having the character of") became OE <em>‑lic</em> (adjective)
+        and <em>‑lice</em> (adverb). Attached to nouns ending in ‑<em>v</em> or ‑<em>f</em>
+        (love, life, brave, live), the combination produced the ‑vely sequence naturally:
+        <em>lufu</em> + ‑lic → <em>luflic</em> → <em>lovely</em>;
+        <em>līf</em> + ‑lic → <em>lǣflic</em> → <em>lively</em>.
+        These words are warm, embodied, and emotionally immediate — they carry
+        the Old English sense of something being <em>like life itself</em>.
+      </p>
+    </div>
+
+    <!-- Stream II: Latin-Romance -->
+    <div class="fade-up">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="dual-badge badge-romance">◆ STREAM II</span>
+        <h3 class="font-display text-sm tracking-widest" style="color:#2858d4;">
+          LATIN-ROMANCE — ‑IVUS → ‑IVE + ‑LY
+        </h3>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <div class="origin-node blue">Latin<br/><span style="color:#2858d4;">‑īvus</span><br/><span style="font-size:0.75rem;opacity:0.6;">"tending to, of the nature of"</span></div>
+        <div class="origin-arrow blue">→</div>
+        <div class="origin-node blue">Old French<br/><span style="color:#2858d4;">‑if / ‑ive</span><br/><span style="font-size:0.75rem;opacity:0.6;">adjective suffix</span></div>
+        <div class="origin-arrow blue">→</div>
+        <div class="origin-node blue">Middle English<br/><span style="color:#2858d4;">‑ive adopted</span><br/><span style="font-size:0.75rem;opacity:0.6;">post-Norman 1066+</span></div>
+        <div class="origin-arrow blue">→</div>
+        <div class="origin-node blue">Modern English<br/><span style="color:#f5f0e8;">active + ly → <em>actively</em></span></div>
+      </div>
+      <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.88;max-width:52rem;">
+        The second stream flows from Classical Latin <em>‑īvus</em>, an adjectival suffix
+        meaning "tending to" or "of the nature of a [verb]" — attached to verbal stems
+        to form adjectives: <em>actīvus</em> (acting), <em>passīvus</em> (being acted upon),
+        <em>nātīvus</em> (born). This passed through Old French as <em>‑if</em> (masculine)
+        and <em>‑ive</em> (feminine), entering Middle English after the Norman Conquest of 1066.
+        When English then applied its native OE adverb-forming <em>‑ly</em> to these ‑ive
+        adjectives, the ‑ively / ‑vely sequence was born: <em>active + ly → actively,
+        effective + ly → effectively, relative + ly → relatively.</em>
+        These words are precise, intellectual, and analytical — the vocabulary of reason.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ CONVERGENCE ══════════════════════════ -->
+<section id="convergence" class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">THE CONVERGENCE</p>
+      <h2 class="font-display font-bold mb-5"
+          style="font-size:clamp(1.8rem,4.5vw,3rem);color:#f5f0e8;">
+        Love Meets Logic
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm" style="color:rgba(245,240,232,0.55);line-height:1.88;">
+        The same four phonemes /v·ə·l·i/ carry two entirely different intellectual histories —
+        and two entirely different emotional temperatures. The convergence is not a coincidence
+        of meaning but a phonological accident of tremendous expressive consequence.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 fade-up items-center">
+
+      <!-- Germanic side -->
+      <div class="conv-box conv-rose">
+        <p class="font-display text-xs tracking-widest mb-3" style="color:#e03870;">STREAM I · GERMANIC</p>
+        <p class="font-serif italic mb-4"
+           style="font-size:2rem;font-weight:300;color:#f5f0e8;">lovely</p>
+        <p class="font-serif italic mb-4"
+           style="font-size:1.5rem;font-weight:300;color:rgba(245,240,232,0.70);">lively</p>
+        <p class="font-serif italic mb-4"
+           style="font-size:1.3rem;font-weight:300;color:rgba(245,240,232,0.55);">bravely</p>
+        <div class="mt-4 pt-4 border-t" style="border-color:rgba(224,56,112,0.22);">
+          <p class="text-xs" style="color:rgba(224,56,112,0.75);">
+            OE noun/adj + ‑lic + ‑e<br/>
+            Warm · Embodied · Emotional
+          </p>
+        </div>
+      </div>
+
+      <!-- Convergence point -->
+      <div class="conv-box conv-green text-center">
+        <p class="font-display text-xs tracking-widest mb-4" style="color:#28a870;">CONVERGENCE POINT</p>
+        <div class="font-display font-black mb-3"
+             style="font-size:3.5rem;
+                    background:linear-gradient(135deg,#e03870,#28a870,#2858d4);
+                    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+                    background-clip:text;line-height:1;">
+          ‑VELY
+        </div>
+        <p class="text-xs mb-4" style="color:rgba(245,240,232,0.50);">
+          /v · ə · l · i/
+        </p>
+        <div class="flex justify-center gap-2 flex-wrap">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(224,56,112,0.15);color:#e03870;">♡ Germanic</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(40,88,212,0.15);color:#2858d4;">◆ Latin</span>
+        </div>
+        <p class="mt-4 text-xs" style="color:rgba(40,168,112,0.70);line-height:1.7;">
+          Two independent etymological rivers. One phonological destination.
+        </p>
+      </div>
+
+      <!-- Latin-Romance side -->
+      <div class="conv-box conv-blue">
+        <p class="font-display text-xs tracking-widest mb-3" style="color:#2858d4;">STREAM II · LATIN</p>
+        <p class="font-serif italic mb-4"
+           style="font-size:2rem;font-weight:300;color:#f5f0e8;">actively</p>
+        <p class="font-serif italic mb-4"
+           style="font-size:1.5rem;font-weight:300;color:rgba(245,240,232,0.70);">effectively</p>
+        <p class="font-serif italic mb-4"
+           style="font-size:1.3rem;font-weight:300;color:rgba(245,240,232,0.55);">exclusively</p>
+        <div class="mt-4 pt-4 border-t" style="border-color:rgba(40,88,212,0.22);">
+          <p class="text-xs" style="color:rgba(40,88,212,0.75);">
+            Lat. ‑īvus → Fr. ‑ive + OE ‑ly<br/>
+            Precise · Abstract · Analytical
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ SEMANTIC STREAMS ══════════════════════════ -->
+<section id="streams" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">SEMANTIC STREAMS</p>
+      <h2 class="font-display font-bold mb-5"
+          style="font-size:clamp(2rem,5vw,3.2rem);color:#f5f0e8;">
+        Four Registers of ‑vely
+      </h2>
+      <p class="max-w-xl mx-auto text-sm" style="color:rgba(245,240,232,0.52);line-height:1.88;">
+        The two etymological streams generate four distinct semantic registers —
+        from the most intimate human experience to the most abstract conceptual operation.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 fade-up">
+
+      <!-- I: Warmth & Beauty -->
+      <div class="stream-panel germanic">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="dual-badge badge-germanic">♡</span>
+          <div>
+            <h3 class="font-display font-semibold" style="color:#f5f0e8;font-size:1.05rem;">
+              Warmth &amp; Beauty
+            </h3>
+            <p class="text-xs font-display tracking-widest" style="color:#e03870;">GERMANIC · ADJECTIVES</p>
+          </div>
+        </div>
+        <p class="text-sm mb-5" style="color:rgba(245,240,232,0.60);line-height:1.80;">
+          The most emotionally resonant ‑vely words: adjectives descended directly
+          from the OE ‑lic suffix attached to nouns and adjectives of life, love,
+          and embodied human experience. These words are complete without
+          further analysis — they are the suffix's emotional core.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="word-pill rose">lovely</span>
+          <span class="word-pill rose">lively</span>
+          <span class="word-pill rose">bravely</span>
+          <span class="word-pill rose">gravely</span>
+          <span class="word-pill rose">natively</span>
+          <span class="word-pill rose">naively</span>
+        </div>
+      </div>
+
+      <!-- II: Vital Motion -->
+      <div class="stream-panel germanic">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="dual-badge badge-germanic">♡</span>
+          <div>
+            <h3 class="font-display font-semibold" style="color:#f5f0e8;font-size:1.05rem;">
+              Vital Motion &amp; Manner
+            </h3>
+            <p class="text-xs font-display tracking-widest" style="color:#e03870;">GERMANIC · ADVERBS OF MANNER</p>
+          </div>
+        </div>
+        <p class="text-sm mb-5" style="color:rgba(245,240,232,0.60);line-height:1.80;">
+          Germanic ‑vely adverbs of manner that describe how actions are performed
+          with bodily energy, courage, or liveliness. These words carry physical
+          immediacy — the feeling of a body in motion, of someone acting from within
+          their own vital force rather than by external calculation.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="word-pill rose">actively</span>
+          <span class="word-pill rose">bravely</span>
+          <span class="word-pill rose">furtively</span>
+          <span class="word-pill rose">restively</span>
+          <span class="word-pill rose">festively</span>
+          <span class="word-pill rose">captively</span>
+        </div>
+      </div>
+
+      <!-- III: Intellectual Precision -->
+      <div class="stream-panel romance">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="dual-badge badge-romance">◆</span>
+          <div>
+            <h3 class="font-display font-semibold" style="color:#f5f0e8;font-size:1.05rem;">
+              Intellectual Precision
+            </h3>
+            <p class="text-xs font-display tracking-widest" style="color:#2858d4;">LATIN-ROMANCE · ANALYTICAL</p>
+          </div>
+        </div>
+        <p class="text-sm mb-5" style="color:rgba(245,240,232,0.60);line-height:1.80;">
+          The largest and fastest-growing ‑vely cluster: adverbs formed from Latin
+          ‑ive adjectives that describe how intellectual, analytical, or relational
+          operations are conducted. The vocabulary of science, philosophy, law,
+          and academic discourse. Precise, impersonal, and universally applicable.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="word-pill blue">effectively</span>
+          <span class="word-pill blue">relatively</span>
+          <span class="word-pill blue">collectively</span>
+          <span class="word-pill blue">exclusively</span>
+          <span class="word-pill blue">passively</span>
+          <span class="word-pill blue">objectively</span>
+        </div>
+      </div>
+
+      <!-- IV: Scope & Degree -->
+      <div class="stream-panel romance">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="dual-badge badge-romance">◆</span>
+          <div>
+            <h3 class="font-display font-semibold" style="color:#f5f0e8;font-size:1.05rem;">
+              Scope, Degree &amp; Logic
+            </h3>
+            <p class="text-xs font-display tracking-widest" style="color:#2858d4;">LATIN-ROMANCE · DEGREE ADVERBS</p>
+          </div>
+        </div>
+        <p class="text-sm mb-5" style="color:rgba(245,240,232,0.60);line-height:1.80;">
+          A specialised cluster of ‑ively adverbs that function as degree modifiers
+          and logical operators within propositions — words that quantify, qualify,
+          or condition the scope of a statement. The most abstract end of the
+          ‑vely spectrum, operating at the level of logic and argumentation itself.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="word-pill blue">exclusively</span>
+          <span class="word-pill blue">inclusively</span>
+          <span class="word-pill blue">intensively</span>
+          <span class="word-pill blue">extensively</span>
+          <span class="word-pill blue">comparatively</span>
+          <span class="word-pill blue">alternatively</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ LETTERS ══════════════════════════ -->
+<section class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">THE FOUR LETTERS</p>
+      <h2 class="font-display font-bold mb-4"
+          style="font-size:clamp(1.8rem,4vw,2.8rem);color:#f5f0e8;">
+        V · E · L · Y
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 fade-up">
+
+      <div class="letter-tile">
+        <div class="font-display font-black mb-4"
+             style="font-size:3.5rem;
+                    background:linear-gradient(135deg,#e03870,#28a870);
+                    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+                    background-clip:text;">V</div>
+        <p class="font-display text-xs tracking-widest mb-2" style="color:#28a870;">VOICED LABIODENTAL</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.52);line-height:1.75;">
+          The /v/ phoneme is the defining marker of ‑vely. In Stream I it
+          comes from the base word's final consonant (lo<em>v</em>e, li<em>v</em>e,
+          bra<em>v</em>e); in Stream II from Latin <em>‑ī<strong>v</strong>us</em>.
+          Two independent /v/ sources — one Germanic, one Latin — meeting in the same phoneme.
+        </p>
+      </div>
+
+      <div class="letter-tile">
+        <div class="font-display font-black mb-4" style="font-size:3.5rem;color:#e03870;">E</div>
+        <p class="font-display text-xs tracking-widest mb-2" style="color:#28a870;">LINKING VOWEL</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.52);line-height:1.75;">
+          In the Romance stream, ‑<em>ive</em> ends in a final ‑e that is a
+          historical remnant of the Old French feminine ‑ive (from Latin ‑īva).
+          In the Germanic stream, the ‑e represents the vowel reduction of OE
+          ‑lic → ‑le. Both converge on the same mid-central sound.
+        </p>
+      </div>
+
+      <div class="letter-tile">
+        <div class="font-display font-black mb-4" style="font-size:3.5rem;color:#28a870;">L</div>
+        <p class="font-display text-xs tracking-widest mb-2" style="color:#e03870;">THE LY KERNEL</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.52);line-height:1.75;">
+          The ‑<em>l</em> is the pivot of the entire suffix. From Proto-Germanic
+          *<em>‑līkaz</em> ("body, like") → OE ‑lic → ME ‑li → ‑ly. The ‑ly
+          adverb suffix is the most productive single morpheme in English —
+          the ‑l in ‑vely is its most frequently occurring initial consonant.
+        </p>
+      </div>
+
+      <div class="letter-tile">
+        <div class="font-display font-black mb-4" style="font-size:3.5rem;color:#2858d4;">Y</div>
+        <p class="font-display text-xs tracking-widest mb-2" style="color:#28a870;">ADVERB MARKER</p>
+        <p class="text-xs" style="color:rgba(245,240,232,0.52);line-height:1.75;">
+          The terminal ‑y is the universal English adverb marker, descended
+          from OE ‑lice → ME ‑liche → ‑ly → ‑y. It is arguably the most
+          recognisable grammatical marker in Modern English — the single letter
+          that signals "this word tells you <em>how</em>."
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ FEATURES ══════════════════════════ -->
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">LINGUISTIC FEATURES</p>
+      <h2 class="font-display font-bold"
+          style="font-size:clamp(1.8rem,4vw,2.8rem);color:#f5f0e8;">
+        What Makes ‑vely Distinctive
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 fade-up">
+
+      <div class="feature-card">
+        <div class="text-2xl mb-3">🌊</div>
+        <h3 class="font-display font-semibold mb-2" style="color:#f5f0e8;font-size:1rem;">
+          Highest ‑ly Frequency Cluster
+        </h3>
+        <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.78;">
+          Words ending in ‑ively (the Latin-Romance stream) represent the
+          single most frequent ‑ly adverb cluster in English academic and
+          journalistic prose. <em>Relatively, effectively, actively, collectively,
+          exclusively</em> appear in the top 500 most frequent English adverbs —
+          more than any other ‑ly sub-cluster.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="text-2xl mb-3">🎭</div>
+        <h3 class="font-display font-semibold mb-2" style="color:#f5f0e8;font-size:1rem;">
+          Adjective-Adverb Duality
+        </h3>
+        <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.78;">
+          Uniquely among suffix clusters, ‑vely words span both adjective and
+          adverb functions without form change: <em>lovely</em> (adjective only),
+          <em>lively</em> (adjective or adverb), <em>effectively</em> (adverb only).
+          The suffix is grammatically ambidextrous, a direct consequence of its
+          dual etymological heritage.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="text-2xl mb-3">💫</div>
+        <h3 class="font-display font-semibold mb-2" style="color:#f5f0e8;font-size:1rem;">
+          The ‑v‑ Phonaesthetic Bridge
+        </h3>
+        <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.78;">
+          The /v/ phoneme in English carries a consistent phonaesthetic charge
+          of vitality and aliveness: <em>vivid, vital, vibrant, vigour, voice,
+          velocity, verve, vibe.</em> The ‑vely suffix inherits this energy —
+          whether the /v/ comes from Germanic <em>love</em> or Latin <em>vīvus</em>,
+          it infuses ‑vely words with a sense of living force.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="text-2xl mb-3">🔬</div>
+        <h3 class="font-display font-semibold mb-2" style="color:#f5f0e8;font-size:1rem;">
+          Academic Register Dominance
+        </h3>
+        <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.78;">
+          The Latin-Romance ‑ively stream dominates academic English to a degree
+          no other suffix cluster matches. Scientific papers, legal documents,
+          and philosophical texts achieve their characteristic register through
+          dense use of ‑ively adverbs: <em>comparatively, definitively,
+          objectively, quantitatively, qualitatively, cumulatively.</em>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="text-2xl mb-3">♻️</div>
+        <h3 class="font-display font-semibold mb-2" style="color:#f5f0e8;font-size:1rem;">
+          Maximum Productivity
+        </h3>
+        <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.78;">
+          ‑ively is one of the most productive suffix chains in English:
+          any ‑ive adjective automatically generates a corresponding ‑ively
+          adverb with zero additional morphological work. This makes the
+          stream self-extending — every new ‑ive word (there are thousands)
+          immediately creates a new ‑ively adverb.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="text-2xl mb-3">🌐</div>
+        <h3 class="font-display font-semibold mb-2" style="color:#f5f0e8;font-size:1rem;">
+          Cross-Register Reach
+        </h3>
+        <p class="text-sm" style="color:rgba(245,240,232,0.55);line-height:1.78;">
+          No other four-letter sequence in English spans the register range that
+          ‑vely does: from the most intimate emotional vocabulary (<em>lovely</em>)
+          to the most abstractly technical (<em>quantitatively</em>). It is the
+          suffix that equally belongs to the love poem and the scientific paper —
+          a uniquely democratic ending.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ TIMELINE ══════════════════════════ -->
+<section class="py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">HISTORY</p>
+      <h2 class="font-display font-bold"
+          style="font-size:clamp(1.8rem,4vw,2.8rem);color:#f5f0e8;">
+        Etymology Timeline
+      </h2>
+    </div>
+
+    <div class="fade-up">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="font-display text-xs tracking-widest mb-1" style="color:#28a870;">
+          200 BCE – 400 CE · CLASSICAL LATIN
+        </p>
+        <h4 class="font-serif text-lg font-semibold mb-2" style="color:#f5f0e8;">
+          ‑īvus crystallises: <em>actīvus, passīvus, nātīvus</em>
+        </h4>
+        <p class="text-sm" style="color:rgba(245,240,232,0.52);line-height:1.85;">
+          Latin formalises the ‑īvus suffix as a productive adjectival marker
+          meaning "tending to, of the nature of [verbal action]." It produces
+          some of the most durable words in Western intellectual history:
+          <em>actīvus</em> (active), <em>passīvus</em> (passive), <em>nātīvus</em>
+          (native), <em>relatīvus</em> (relative). These will travel intact
+          through 2,000 years of linguistic change.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="font-display text-xs tracking-widest mb-1" style="color:#28a870;">
+          450 – 1100 CE · OLD ENGLISH
+        </p>
+        <h4 class="font-serif text-lg font-semibold mb-2" style="color:#f5f0e8;">
+          ‑lic / ‑lice: <em>lufu → luflic → "lovely"</em>
+        </h4>
+        <p class="text-sm" style="color:rgba(245,240,232,0.52);line-height:1.85;">
+          The Germanic stream produces its foundational ‑vely words in Old English.
+          <em>Lufu</em> (love) + ‑lic → <em>luflic</em> (lovely);
+          <em>līf</em> (life) + ‑lic → <em>līflic</em> (lively).
+          These are among the most emotionally resonant words in the language —
+          formed long before Latin had any influence on English vocabulary.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="font-display text-xs tracking-widest mb-1" style="color:#28a870;">
+          800 – 1066 CE · OLD FRENCH
+        </p>
+        <h4 class="font-serif text-lg font-semibold mb-2" style="color:#f5f0e8;">
+          Latin ‑īvus becomes French ‑if / ‑ive
+        </h4>
+        <p class="text-sm" style="color:rgba(245,240,232,0.52);line-height:1.85;">
+          As Latin evolves into Old French, ‑īvus loses its long vowel and
+          splits by gender: masculine ‑if, feminine ‑ive. Words like
+          <em>actif / active</em>, <em>passif / passive</em>,
+          <em>natif / native</em> are fully formed in French
+          before they enter English.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="font-display text-xs tracking-widest mb-1" style="color:#28a870;">
+          1066 – 1350 CE · MIDDLE ENGLISH (NORMAN)
+        </p>
+        <h4 class="font-serif text-lg font-semibold mb-2" style="color:#f5f0e8;">
+          The two streams begin to share spelling: ‑vely
+        </h4>
+        <p class="text-sm" style="color:rgba(245,240,232,0.52);line-height:1.85;">
+          Norman French introduces ‑ive adjectives into English. The pre-existing
+          OE ‑ly adverb suffix is applied to them immediately: <em>active + ly →
+          actively</em>. Meanwhile, OE ‑lic continues reducing to ‑ly.
+          For the first time, <em>lovely</em> (Germanic) and <em>actively</em>
+          (Latin) share the same ‑vely ending — though nobody yet notices the convergence.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="font-display text-xs tracking-widest mb-1" style="color:#28a870;">
+          1350 – 1700 CE · EARLY MODERN ENGLISH
+        </p>
+        <h4 class="font-serif text-lg font-semibold mb-2" style="color:#f5f0e8;">
+          Renaissance Latin influx massively expands ‑ively
+        </h4>
+        <p class="text-sm" style="color:rgba(245,240,232,0.52);line-height:1.85;">
+          The Renaissance introduces hundreds of new Latin ‑ive adjectives
+          directly into English, each immediately generating a ‑ively adverb:
+          <em>exclusively, collectively, effectively, objectively, relatively,
+          alternatively, comparatively.</em>
+          The Latin-Romance stream overtakes the Germanic stream in sheer word count,
+          establishing ‑ively as the dominant form of the ‑vely cluster.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="font-display text-xs tracking-widest mb-1" style="color:#28a870;">
+          1700 CE – PRESENT · MODERN ENGLISH
+        </p>
+        <h4 class="font-serif text-lg font-semibold mb-2" style="color:#f5f0e8;">
+          ‑ively becomes the suffix of modernity
+        </h4>
+        <p class="text-sm" style="color:rgba(245,240,232,0.52);line-height:1.85;">
+          The 18th–21st centuries see ‑ively achieve near-total dominance in
+          formal, academic, scientific, and digital prose. New coinages continue
+          to form automatically: every new ‑ive adjective born in science,
+          technology, law, or business generates a ‑ively adverb.
+          Yet <em>lovely</em> and <em>lively</em> — the Germanic stream's
+          two greatest words — retain their unique emotional power, undiminished
+          by 500+ ‑ively competitors.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ WORD GALLERY ══════════════════════════ -->
+<section id="words" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">LEXICON</p>
+      <h2 class="font-display font-bold mb-4"
+          style="font-size:clamp(1.8rem,4vw,2.8rem);color:#f5f0e8;">
+        Word Gallery
+      </h2>
+      <p class="text-sm mb-6" style="color:rgba(245,240,232,0.45);">
+        The ‑vely lexicon across both streams.
+        <span style="color:#e03870;">Rose</span> = Germanic · <span style="color:#2858d4;">Blue</span> = Latin-Romance
+      </p>
+    </div>
+
+    <!-- Germanic -->
+    <div class="mb-8 fade-up">
+      <p class="font-display text-xs tracking-widest mb-4" style="color:#e03870;">♡ GERMANIC STREAM</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="word-pill rose">bravely</span>
+        <span class="word-pill rose">gravely</span>
+        <span class="word-pill rose">lively</span>
+        <span class="word-pill rose">lovely</span>
+        <span class="word-pill rose">naively</span>
+        <span class="word-pill rose">natively</span>
+        <span class="word-pill rose">festively</span>
+        <span class="word-pill rose">restively</span>
+        <span class="word-pill rose">captively</span>
+        <span class="word-pill rose">furtively</span>
+        <span class="word-pill rose">motively</span>
+        <span class="word-pill rose">votively</span>
+      </div>
+    </div>
+
+    <!-- Latin-Romance -->
+    <div class="fade-up">
+      <p class="font-display text-xs tracking-widest mb-4" style="color:#2858d4;">◆ LATIN-ROMANCE STREAM</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="word-pill blue">actively</span>
+        <span class="word-pill blue">alternatively</span>
+        <span class="word-pill blue">attentively</span>
+        <span class="word-pill blue">collectively</span>
+        <span class="word-pill blue">comparatively</span>
+        <span class="word-pill blue">comprehensively</span>
+        <span class="word-pill blue">constructively</span>
+        <span class="word-pill blue">creatively</span>
+        <span class="word-pill blue">cumulatively</span>
+        <span class="word-pill blue">decisively</span>
+        <span class="word-pill blue">definitively</span>
+        <span class="word-pill blue">effectively</span>
+        <span class="word-pill blue">exclusively</span>
+        <span class="word-pill blue">extensively</span>
+        <span class="word-pill blue">figuratively</span>
+        <span class="word-pill blue">inclusively</span>
+        <span class="word-pill blue">intensively</span>
+        <span class="word-pill blue">intuitively</span>
+        <span class="word-pill blue">objectively</span>
+        <span class="word-pill blue">passively</span>
+        <span class="word-pill blue">positively</span>
+        <span class="word-pill blue">productively</span>
+        <span class="word-pill blue">qualitatively</span>
+        <span class="word-pill blue">quantitatively</span>
+        <span class="word-pill blue">relatively</span>
+        <span class="word-pill blue">selectively</span>
+        <span class="word-pill blue">sensitively</span>
+        <span class="word-pill blue">subjectively</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ CODEX ══════════════════════════ -->
+<section id="codex" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto fade-up">
+
+    <div class="text-center mb-10">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">SUFFIX PROFILE</p>
+      <h2 class="font-display font-bold"
+          style="font-size:clamp(1.8rem,4vw,2.8rem);color:#f5f0e8;">
+        The ‑vely Codex
+      </h2>
+    </div>
+
+    <div class="codex-box">
+      <div class="codex-row">
+        <span class="codex-key">SUFFIX</span>
+        <span class="codex-val font-serif italic">‑vely (Germanic stream); ‑ively (Latin-Romance stream)</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">COMPONENTS</span>
+        <span class="codex-val">
+          Stream I: base‑<em>v</em> + OE <em>‑lic</em> + ‑e → ‑vely<br/>
+          Stream II: Latin <em>‑īvus</em> → Fr. <em>‑ive</em> + OE <em>‑ly</em> → ‑ively
+        </span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">FUNCTION</span>
+        <span class="codex-val">Adjective (Germanic); Adverb of manner, degree, scope (both streams)</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">CORE MEANING</span>
+        <span class="codex-val">"in the manner of [life/love]" (Germanic) · "in a manner tending to [verb]" (Latin)</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">DUAL ORIGIN</span>
+        <span class="codex-val">PGmc *‑līkaz (Germanic warmth) + Latin ‑īvus (Latin precision) — accidental phonological convergence</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">PHONAESTHETICS</span>
+        <span class="codex-val">/v/ vitality + /l/ liquid resonance + /i/ brightness — living, flowing, forward motion</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">REGISTER</span>
+        <span class="codex-val">Universal — from the love poem to the scientific paper; widest register span of any ‑ly cluster</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">WORD COUNT</span>
+        <span class="codex-val">500+ established words; ‑ively is fully productive (auto-generates from any ‑ive adjective)</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">NOTABLE PAIR</span>
+        <span class="codex-val font-serif italic">lovely (Germanic, ~1000 CE) · effectively (Latin-Romance, ~1650 CE) — same ending, 650 years apart</span>
+      </div>
+      <div class="codex-row">
+        <span class="codex-key">DOMAIN</span>
+        <span class="codex-val" style="color:#28a870;">vely.kr</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ SERIES ══════════════════════════ -->
+<section id="series" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs tracking-widest font-display mb-3" style="color:#28a870;">SUFFIX DOMAIN SERIES</p>
+      <h2 class="font-display font-bold mb-4"
+          style="font-size:clamp(1.8rem,4vw,2.8rem);color:#f5f0e8;">
+        Explore the Series
+      </h2>
+      <p class="text-sm" style="color:rgba(245,240,232,0.45);">
+        Each domain in this series is dedicated to one English suffix — its origin, function, and lexicon.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3 fade-up">
+      <a href="https://ous.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑OUS</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ous.kr</span></a>
+      <a href="https://ize.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑IZE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ize.kr</span></a>
+      <a href="https://ive.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑IVE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ive.kr</span></a>
+      <a href="https://ity.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑ITY</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ity.kr</span></a>
+      <a href="https://ify.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑IFY</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ify.kr</span></a>
+      <a href="https://ial.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑IAL</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ial.kr</span></a>
+      <a href="https://ful.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑FUL</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ful.kr</span></a>
+      <a href="https://ary.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑ARY</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ary.kr</span></a>
+      <a href="https://ble.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑BLE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ble.kr</span></a>
+      <a href="https://rry.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑RRY</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">rry.kr</span></a>
+      <a href="https://ppy.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑PPY</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ppy.kr</span></a>
+      <a href="https://ple.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑PLE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">ple.kr</span></a>
+      <a href="https://bly.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑BLY</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">bly.kr</span></a>
+      <a href="https://tle.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑TLE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">tle.kr</span></a>
+      <a href="https://dle.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑DLE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">dle.kr</span></a>
+      <a href="https://zle.kr"  class="series-card"><span class="font-display font-bold text-lg" style="color:#f5f0e8;">‑ZLE</span><span class="text-xs" style="color:rgba(245,240,232,0.38);">zle.kr</span></a>
+      <a href="https://vely.kr" class="series-card active"><span class="font-display font-bold text-lg" style="color:#28a870;">‑VELY</span><span class="text-xs" style="color:rgba(40,168,112,0.65);">vely.kr</span></a>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ ORIGIN NARRATIVE ══════════════════════════ -->
+<section class="py-24 px-6">
+  <div class="max-w-3xl mx-auto text-center fade-up">
+    <p class="text-xs tracking-widest font-display mb-6" style="color:#28a870;">THE STORY OF ‑VELY</p>
+    <blockquote class="font-serif italic mb-8"
+                style="font-size:clamp(1.2rem,2.8vw,1.85rem);
+                       line-height:1.72;color:rgba(245,240,232,0.90);
+                       font-weight:300;">
+      "An Anglo-Saxon woman said <em style='color:#e03870;'>lovely</em>
+      in the year 900, and she meant it with everything she had.
+      A scientist wrote <em style='color:#2858d4;'>effectively</em>
+      in the year 1650, and meant something entirely different.
+      A thousand years apart, two civilisations,
+      two languages, two ideas of what it means to live.
+      And yet — the same four letters. The same ending.
+      <em style='color:#28a870;'>‑vely.</em>
+      Not an accident. A conversation."
+    </blockquote>
+    <p style="color:rgba(245,240,232,0.35);font-size:0.85rem;
+              font-family:var(--font-display);letter-spacing:0.10em;">
+      — vely.kr, 2026
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════ CONTACT ══════════════════════════ -->
+<section class="py-24 px-6 text-center fade-up">
+  <div class="max-w-xl mx-auto">
+    <p class="text-xs tracking-widest font-display mb-4" style="color:#28a870;">CONTACT</p>
+    <h2 class="font-display font-bold mb-4"
+        style="font-size:clamp(1.8rem,4vw,2.6rem);color:#f5f0e8;">
+      Get in Touch
+    </h2>
+    <p class="mb-8 text-sm" style="color:rgba(245,240,232,0.50);line-height:1.88;">
+      Inquiries about the ‑vely suffix, the suffix domain series,
+      or domain partnerships are warmly welcomed.
+    </p>
+    <a href="mailto:hello@vely.kr"
+       class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all"
+       style="background:rgba(40,168,112,0.85);color:#f5f0e8;font-size:1rem;"
+       onmouseover="this.style.background='rgba(40,168,112,1)'"
+       onmouseout="this.style.background='rgba(40,168,112,0.85)'">
+      ✉ hello@vely.kr
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="py-10 px-6 border-t" style="border-color:rgba(40,168,112,0.16);">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center border"
+           style="background:rgba(40,168,112,0.14);border-color:rgba(40,168,112,0.38);">
+        <span class="font-display text-xs font-bold" style="color:#28a870;">VELY</span>
+      </div>
+      <span class="font-display text-sm tracking-wide" style="color:rgba(245,240,232,0.50);">vely.kr</span>
+    </div>
+    <p class="text-xs text-center"
+       style="color:rgba(245,240,232,0.28);font-family:var(--font-display);letter-spacing:0.08em;">
+      © 2026 VELY.KR — THE SUFFIX DOMAIN SERIES
+    </p>
+    <a href="mailto:hello@vely.kr"
+       class="text-xs transition-colors" style="color:rgba(40,168,112,0.55);"
+       onmouseover="this.style.color='#28a870'"
+       onmouseout="this.style.color='rgba(40,168,112,0.55)'">
+      hello@vely.kr
+    </a>
+  </div>
+</footer>
+
+<!-- ══════════════════════════ SCRIPTS ══════════════════════════ -->
+<script>
+/* ── Fade-up Observer ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* ══════════════════════════════════════════════════════════════════
+   PARTICLE SYSTEM — 4 LAYERS
+   1. DualMote     — two-colour drifting sparks (Rose + Blue → Green at top)
+   2. VelyWord     — floating -vely words, italic serif (Cormorant)
+   3. LifeLine     — flowing dual-colour sinusoidal curves (NEW: sine path)
+   4. ConvergeRing — bicolour expanding rings (Rose left / Blue right)
+══════════════════════════════════════════════════════════════════ */
+(function () {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx    = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const ROSE  = 'rgba(224,56,112,';
+  const BLUE  = 'rgba(40,88,212,';
+  const GREEN = 'rgba(40,168,112,';
+  const IVORY = 'rgba(245,240,232,';
+
+  /* ── Layer 1: DualMote — two-stream rising sparks ── */
+  class DualMote {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.x    = Math.random() * W;
+      this.y    = init ? Math.random() * H : H + 8;
+      this.r    = 0.9 + Math.random() * 2.0;
+      this.vy   = -(0.18 + Math.random() * 0.32);
+      this.vx   = (Math.random() - 0.5) * 0.20;
+      this.a    = 0.06 + Math.random() * 0.22;
+      this.sway = Math.random() * Math.PI * 2;
+      // Left half → Rose (Germanic), Right half → Blue (Latin)
+      const r   = Math.random();
+      this.col  = r < 0.40 ? ROSE : r < 0.75 ? BLUE : GREEN;
+    }
+    update() {
+      this.x   += this.vx + Math.sin(this.sway) * 0.18;
+      this.y   += this.vy;
+      this.sway += 0.04;
+      if (this.y < -10) this.reset(false);
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.col + this.a + ')';
+      ctx.fill();
+    }
+  }
+
+  /* ── Layer 2: VelyWord — floating italic -vely words ── */
+  const VELY_WORDS = [
+    'lovely','lively','bravely','gravely','naively',
+    'actively','effectively','relatively','exclusively','collectively',
+    'passively','objectively','positively','creatively','sensitively',
+    'intensively','decisively','intuitively','comparatively','alternatively',
+    'festively','furtively','captively','restively','natively'
+  ];
+  class VelyWord {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.word  = VELY_WORDS[Math.floor(Math.random() * VELY_WORDS.length)];
+      this.x     = Math.random() * W;
+      this.y     = init ? Math.random() * H : H + 35;
+      this.vy    = -(0.10 + Math.random() * 0.18);
+      this.a     = 0.04 + Math.random() * 0.08;
+      this.size  = 9 + Math.random() * 10;
+      this.drift = (Math.random() - 0.5) * 0.007;
+      this.angle = 0;
+      // Germanic words → Rose; Latin words → Blue
+      const germ = ['lovely','lively','bravely','gravely','naively',
+                    'festively','furtively','captively','restively','natively'];
+      this.col = germ.includes(this.word) ? ROSE : BLUE;
+    }
+    update() {
+      this.y     += this.vy;
+      this.angle += this.drift;
+      if (this.y < -40) this.reset(false);
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.font = `300 italic ${this.size}px 'Cormorant Garamond', serif`;
+      ctx.fillStyle = this.col + this.a + ')';
+      ctx.fillText(this.word, 0, 0);
+      ctx.restore();
+    }
+  }
+
+  /* ── Layer 3: LifeLine — sinusoidal flowing curves (two-stream) ── */
+  class LifeLine {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.x      = init ? Math.random() * W : (Math.random() < 0.5 ? -20 : W + 20);
+      this.y      = Math.random() * H;
+      this.vx     = (this.x < W / 2 ? 1 : -1) * (0.25 + Math.random() * 0.30);
+      this.amp    = 20 + Math.random() * 35;
+      this.freq   = 0.015 + Math.random() * 0.020;
+      this.phase  = Math.random() * Math.PI * 2;
+      this.len    = 80 + Math.random() * 120;
+      this.a      = 0.04 + Math.random() * 0.08;
+      this.col    = Math.random() < 0.5 ? ROSE : BLUE;
+      this.t      = 0;
+    }
+    update() {
+      this.x   += this.vx;
+      this.t   += 0.02;
+      const outL = this.x < -this.len - 20;
+      const outR = this.x > W + this.len + 20;
+      if (outL || outR) this.reset(false);
+    }
+    draw() {
+      ctx.beginPath();
+      for (let i = 0; i <= this.len; i += 2) {
+        const xi = this.x + (this.vx > 0 ? i : -i);
+        const yi = this.y + Math.sin(xi * this.freq + this.phase + this.t) * this.amp;
+        i === 0 ? ctx.moveTo(xi, yi) : ctx.lineTo(xi, yi);
+      }
+      ctx.strokeStyle = this.col + this.a + ')';
+      ctx.lineWidth   = 0.7 + Math.random() * 0.5;
+      ctx.stroke();
+    }
+  }
+
+  /* ── Layer 4: ConvergeRing — bicolour rings converging to centre ── */
+  class ConvergeRing {
+    constructor() { this.reset(true); }
+    reset(init) {
+      // Spawn from either left (Rose) or right (Blue) edge, move toward centre
+      this.side  = Math.random() < 0.5 ? 'rose' : 'blue';
+      this.x     = init ? Math.random() * W :
+                   (this.side === 'rose' ? Math.random() * W * 0.45
+                                         : W * 0.55 + Math.random() * W * 0.45);
+      this.y     = Math.random() * H;
+      this.r     = init ? Math.random() * 60 : 2;
+      this.maxR  = 45 + Math.random() * 75;
+      this.dr    = 0.30 + Math.random() * 0.25;
+      this.a     = 0.13 + Math.random() * 0.16;
+      this.w     = 0.6 + Math.random() * 0.9;
+      this.col   = this.side === 'rose' ? ROSE : BLUE;
+    }
+    update() {
+      this.r += this.dr;
+      this.a *= 0.988;
+      if (this.r > this.maxR || this.a < 0.005) this.reset(false);
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.strokeStyle = this.col + this.a + ')';
+      ctx.lineWidth   = this.w;
+      ctx.stroke();
+    }
+  }
+
+  /* ── Instantiate ── */
+  const motes = Array.from({ length: 65 }, () => new DualMote());
+  const words = Array.from({ length: 26 }, () => new VelyWord());
+  const lines = Array.from({ length: 18 }, () => new LifeLine());
+  const rings = Array.from({ length: 14 }, () => new ConvergeRing());
+
+  /* ── Render Loop ── */
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    [...rings, ...lines, ...motes, ...words].forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
+
+</body>
+</html>
